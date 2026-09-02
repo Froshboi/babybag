@@ -493,6 +493,10 @@ CREATE POLICY "Server update streaks" ON learning_streaks FOR UPDATE USING (auth
 CREATE POLICY "Users read own certs" ON certificates FOR SELECT USING (auth.uid() = user_id);
 CREATE POLICY "Admins read all certs" ON certificates FOR SELECT USING (public.has_role(auth.uid(), 'admin'));
 
+GRANT SELECT ON public.modules, public.quiz_questions, public.challenges, public.reward_rules TO anon, authenticated;
+GRANT SELECT, INSERT, UPDATE ON public.module_progress TO authenticated;
+GRANT SELECT, INSERT ON public.quiz_attempts TO authenticated;
+
 -- =====================================================
 -- INDEXES
 -- =====================================================

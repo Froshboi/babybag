@@ -2,6 +2,7 @@ import { createServerSupabase } from '@/lib/supabase/server';
 import { ProtectedRoute } from '@/components/ProtectedRoute';
 import { Quiz } from '@/components/Quiz';
 import { notFound } from 'next/navigation';
+import Link from 'next/link';
 
 async function getLesson(slug, userId) {
   const supabase = createServerSupabase();
