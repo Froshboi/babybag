@@ -3,6 +3,7 @@ import './globals.css';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import { AuthProvider } from '@/contexts/AuthContext';
+import { ServiceWorker } from '@/components/ServiceWorker';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -19,6 +20,7 @@ export default function RootLayout({ children }) {
     <html lang="en" className="scroll-smooth">
       <body className={`${inter.className} bg-cream min-h-screen flex flex-col`}>
         <AuthProvider>
+          <ServiceWorker />
           <Navbar />
           <main className="flex-1 container mx-auto px-0 max-w-none">
             {children}
