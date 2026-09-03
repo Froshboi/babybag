@@ -1,6 +1,15 @@
+'use client';
 import Link from 'next/link';
+import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+import { useAuth } from '@/contexts/AuthContext';
+import { BabyMascot } from '@/components/BabyMascot';
 
 export default function Landing() {
+  const { user, loading } = useAuth();
+  const router = useRouter();
+  useEffect(() => { if (!loading && user) router.replace('/dashboard'); }, [loading, user, router]);
+  if (loading || user) return null;
   return (
     <div className="flex flex-col items-center text-left space-y-0">
       {/* Hero */}
@@ -26,7 +35,7 @@ export default function Landing() {
           <span className="tag">+ No hype</span>
         </div>
         <div className="mt-14 max-w-xl h-72 sm:h-96 rounded-[3rem] bg-[#dcefdc] flex items-center justify-center overflow-hidden">
-          <div className="text-[10rem] sm:text-[13rem] leading-none">🐣</div>
+          <BabyMascot size="lg" />
         </div>
       </section>
 

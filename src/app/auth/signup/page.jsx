@@ -9,24 +9,27 @@ export default function SignUp() {
   const [password, setPassword] = useState('');
   const [fullName, setFullName] = useState('');
   const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
   const { supabase } = useAuth();
   const router = useRouter();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
+    setLoading(true);
     const { error } = await supabase.auth.signUp({
       email,
       password,
       options: { data: { full_name: fullName } },
     });
-    if (error) setError(error.message);
+    if (error) { setError(error.message); setLoading(false); }
     else router.push('/dashboard');
   };
 
   return (
     <div className="max-w-md mx-auto mt-6 sm:mt-12 card border-t-4 border-t-gold">
-      <div className="text-center mb-6"><div className="text-5xl mb-3">🐣</div><p className="eyebrow">Start small</p><h2 className="text-2xl font-bold mt-1">Create your nest</h2></div>
+      <div className="text-center mb-6"><div className="text-5xl mb-3">✨</div><p className="eyebrow">Start small</p><h2 className="text-2xl font-bold mt-1">Create your nest</h2></div>
       <form onSubmit={handleSubmit} className="space-y-4">
         <input
           type="text"
@@ -44,17 +47,17 @@ export default function SignUp() {
           className="field"
           required
         />
-        <input
-          type="password"
+        <div className="relative"><input
+          type={showPassword ? 'text' : 'password'}
           placeholder="Password (min 6 chars)"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           className="field"
           required
           minLength={6}
-        />
+        /><button type="button" onClick={() => setShowPassword(!showPassword)} className="absolute right-3 top-3 text-xs text-mint-dark font-semibold">{showPassword ? 'Hide' : 'Show'}</button></div>
         {error && <p className="text-red-500 text-sm">{error}</p>}
-        <button type="submit" className="btn-primary w-full">Sign Up</button>
+        <button type="submit" disabled={loading} className="btn-primary w-full disabled:opacity-50">{loading ? 'Building your nest…' : 'Sign Up'}</button>
       </form>
       <p className="mt-4 text-sm text-navy/60">
         Already have an account? <Link href="/auth/signin" className="text-mint-dark font-semibold">Sign in</Link>

@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    @apply bg-cream text-navy font-sans antialiased;
+    @apply bg-cream text-navy font-sans antialiased text-[15px] sm:text-base;
     background-image: none;
   }
   h1, h2, h3 {
@@ -20,10 +20,10 @@
     @apply inline-flex items-center justify-center gap-2 bg-gold hover:bg-yellow-400 text-navy font-semibold py-3 px-6 rounded-full transition-all focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:ring-offset-cream;
   }
   .card {
-    @apply bg-white rounded-[2rem] shadow-sm p-6 border border-black/5;
+    @apply bg-white rounded-2xl sm:rounded-[2rem] shadow-sm p-4 sm:p-6 border border-black/5;
   }
   .section-title {
-    @apply text-3xl md:text-4xl font-bold text-navy mb-3 tracking-tight;
+    @apply text-2xl sm:text-3xl md:text-4xl font-bold text-navy mb-3 tracking-tight;
   }
   .tag {
     @apply inline-block text-[#68736d] text-sm px-1 py-1 font-medium;
@@ -32,6 +32,6 @@
     @apply text-xs font-bold uppercase tracking-[0.18em] text-mint-dark;
   }
   .field {
-    @apply w-full rounded-xl border border-black/10 bg-white p-3 text-navy placeholder:text-navy/40 focus:outline-none focus:ring-2 focus:ring-mint;
+    @apply w-full rounded-xl border border-black/10 bg-white p-3 text-sm sm:text-base text-navy placeholder:text-navy/40 focus:outline-none focus:ring-2 focus:ring-mint;
   }
 }
