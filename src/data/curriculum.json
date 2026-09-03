@@ -1,0 +1,151 @@
+{
+  "modules": [
+    {
+      "id": "what-is-forex",
+      "slug": "what-is-forex",
+      "title": "What is Forex?",
+      "description": "Learn what the foreign exchange market is and why currencies move.",
+      "phase": "Foundations",
+      "phase_order": 1,
+      "module_order": 1,
+      "duration_minutes": 6,
+      "is_free": true,
+      "cost_bb": 0,
+      "content": "Forex is the global market where one currency is exchanged for another. It operates 24 hours a day, five days a week, across the Tokyo, London, and New York sessions. Traders quote a pair such as EUR/USD: the first currency is the base and the second is the quote currency. If EUR/USD rises, one euro buys more dollars. Retail traders speculate on these price changes through a broker rather than holding physical notes. Forex is liquid and accessible, but leverage magnifies losses as well as gains.",
+      "key_takeaways": [
+        "Forex is a decentralised 24/5 currency market.",
+        "A pair compares the value of its base currency with its quote currency.",
+        "Leverage increases both potential profit and potential loss.",
+        "Trading is a skill, not a get-rich-quick scheme."
+      ],
+      "quiz": [
+        {
+          "id": "forex-1",
+          "question_text": "What does EUR/USD represent?",
+          "options": ["The price of one euro in US dollars", "The price of one dollar in euros", "Two stock tickers", "A bond yield"],
+          "correct_answer_index": 0,
+          "explanation": "EUR is the base currency and USD is the quote currency."
+        },
+        {
+          "id": "forex-2",
+          "question_text": "What does leverage do?",
+          "options": ["Removes all risk", "Amplifies gains and losses", "Guarantees a winning trade", "Closes the market"],
+          "correct_answer_index": 1,
+          "explanation": "Leverage changes the size of exposure, so losses can grow faster too."
+        }
+      ]
+    },
+    {
+      "id": "reading-price-action",
+      "slug": "reading-price-action",
+      "title": "Reading Price Action",
+      "description": "Read the story behind candles, trends, support, and resistance.",
+      "phase": "Foundations",
+      "phase_order": 1,
+      "module_order": 2,
+      "duration_minutes": 7,
+      "is_free": true,
+      "cost_bb": 0,
+      "content": "Price action is the movement of price over time. A bullish candle closes above its open; a bearish candle closes below it. Support is an area where buyers have previously stepped in, while resistance is where sellers have appeared. A trend is a sequence of higher highs and higher lows (uptrend) or lower highs and lower lows (downtrend). Treat levels as zones, not perfect lines, and wait for price to confirm your idea instead of predicting every tick.",
+      "key_takeaways": [
+        "Candles show the battle between buyers and sellers.",
+        "Support and resistance are zones where price may react.",
+        "Higher highs and higher lows describe an uptrend.",
+        "Confirmation is more useful than a confident guess."
+      ],
+      "quiz": [
+        {
+          "id": "price-1",
+          "question_text": "What is support?",
+          "options": ["A zone where buyers may step in", "A guaranteed price floor", "The daily market close", "A broker fee"],
+          "correct_answer_index": 0,
+          "explanation": "Support is an area of demand, not a guaranteed floor."
+        },
+        {
+          "id": "price-2",
+          "question_text": "Which sequence describes an uptrend?",
+          "options": ["Lower highs and lower lows", "Flat closes only", "Higher highs and higher lows", "Random candles"],
+          "correct_answer_index": 2,
+          "explanation": "An uptrend advances through higher swing highs and higher swing lows."
+        }
+      ]
+    },
+    {
+      "id": "risk-management",
+      "slug": "risk-management",
+      "title": "Risk Management Essentials",
+      "description": "Protect your account before you think about making a return.",
+      "phase": "Foundations",
+      "phase_order": 1,
+      "module_order": 3,
+      "duration_minutes": 8,
+      "is_free": true,
+      "cost_bb": 0,
+      "content": "Risk management keeps one bad trade from ending your learning journey. Decide the amount you can lose before entering, place a stop loss at a logical invalidation point, and size the position from that stop distance. A simple beginner rule is to risk no more than 1% of a demo account on one idea. Your risk-to-reward plan should be written before entry. A losing trade is a business expense; moving a stop to avoid accepting it is not a strategy.",
+      "key_takeaways": [
+        "Define risk before entry and size from the stop distance.",
+        "A 1% risk limit gives a demo account room to learn.",
+        "Stops belong beyond the level that invalidates the idea.",
+        "Consistency matters more than one big winning trade."
+      ],
+      "quiz": [
+        {
+          "id": "risk-1",
+          "question_text": "What should you decide before entering a trade?",
+          "options": ["Maximum loss and invalidation point", "A guaranteed profit", "A new strategy every time", "Nothing"],
+          "correct_answer_index": 0,
+          "explanation": "Predefined risk protects you from emotional decisions."
+        },
+        {
+          "id": "risk-2",
+          "question_text": "Why use a stop loss?",
+          "options": ["To guarantee a win", "To cap the planned loss if the idea is wrong", "To increase leverage", "To avoid journaling"],
+          "correct_answer_index": 1,
+          "explanation": "A stop exits when the setup is invalidated and keeps risk measurable."
+        }
+      ]
+    },
+    {
+      "id": "chart-types",
+      "slug": "chart-types",
+      "title": "Chart Types and Timeframes",
+      "description": "Go deeper into candle structure and choosing a useful timeframe.",
+      "phase": "Price and Charts",
+      "phase_order": 2,
+      "module_order": 4,
+      "duration_minutes": 8,
+      "is_free": false,
+      "cost_bb": 350,
+      "content": "Candlesticks show open, high, low, and close for a period. Wicks reveal rejection and the body shows where the session opened and closed. Higher timeframes usually contain less noise, while lower timeframes create more signals and more false starts. Start with a timeframe that matches the time you can actually spend observing the market.",
+      "key_takeaways": ["Bodies show open-to-close movement.", "Wicks show the full traded range.", "Higher timeframes can filter noise."]
+    },
+    {
+      "id": "fundamental-factors",
+      "slug": "fundamental-factors",
+      "title": "Fundamental Factors",
+      "description": "Understand how rates, inflation, and economic news move currencies.",
+      "phase": "Price and Charts",
+      "phase_order": 2,
+      "module_order": 5,
+      "duration_minutes": 9,
+      "is_free": false,
+      "cost_bb": 350,
+      "content": "Interest-rate expectations, inflation, employment, and central-bank decisions can change the demand for a currency. Economic calendars help traders know when volatility may expand. Fundamentals provide context, but no headline guarantees a direction. Combine a clear thesis with defined risk and wait for price confirmation.",
+      "key_takeaways": ["Rate expectations influence currency demand.", "News can expand volatility quickly.", "A fundamental view still needs risk control."]
+    },
+    {
+      "id": "building-first-strategy",
+      "slug": "building-first-strategy",
+      "title": "Build Your First Strategy",
+      "description": "Turn what you learned into a simple, testable trading plan.",
+      "phase": "Execution",
+      "phase_order": 3,
+      "module_order": 6,
+      "duration_minutes": 10,
+      "is_free": false,
+      "cost_bb": 350,
+      "content": "A usable strategy states the market, timeframe, entry trigger, invalidation point, position size, and exit rules. Backtest it, paper trade it, and journal every decision before risking money. Keep the first version simple enough to follow on a tired day. Review a sample of trades rather than changing the rules after one outcome.",
+      "key_takeaways": ["Write entry and exit rules in plain language.", "Backtest before live risk.", "A journal turns outcomes into feedback."]
+    }
+  ]
+}

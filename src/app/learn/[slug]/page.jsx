@@ -1,36 +1,13 @@
-import { createServerSupabase } from '@/lib/supabase/server';
 import { ProtectedRoute } from '@/components/ProtectedRoute';
 import { Quiz } from '@/components/Quiz';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
+import curriculum from '@/data/curriculum.json';
 
-async function getLesson(slug, userId) {
-  const supabase = createServerSupabase();
-  const [moduleRes, progressRes] = await Promise.all([
-    supabase
-      .from('modules')
-      .select('*, quizzes:quiz_questions(*)')
-      .eq('slug', slug)
-      .single(),
-    supabase
-      .from('module_progress')
-      .select('status, percent_complete, completed_at')
-      .eq('module_id', (await supabase.from('modules').select('id').eq('slug', slug).single()).data?.id)
-      .eq('user_id', userId)
-      .maybeSingle(),
-  ]);
-  if (moduleRes.error) return { module: null, progress: null };
-  return { module: moduleRes.data, progress: progressRes.data };
-}
-
-export default async function LearnPage({ params }) {
-  const supabase = createServerSupabase();
-  const { data: { user } } = await supabase.auth.getUser();
-  const { module, progress } = await getLesson(params.slug, user.id);
+export default function LearnPage({ params }) {
+  const module = curriculum.modules.find((item) => item.slug === params.slug);
 
   if (!module) return notFound();
-
-  const isCompleted = progress?.status === 'completed';
 
   return (
     <ProtectedRoute>
@@ -45,8 +22,17 @@ export default async function LearnPage({ params }) {
         </div>
 
         {/* Lesson content */}
+        {!module.is_free ? (
+          <div className="card border-l-4 border-l-gold bg-gold/10">
+            <p className="eyebrow">Premium lesson</p>
+            <h2 className="text-2xl font-bold mt-2">Unlock the next level</h2>
+            <p className="text-navy/70 mt-2">You have access to lessons 1–3 and the paper simulator. Unlock this lesson for {module.cost_bb} BB when you are ready to go deeper.</p>
+            <Link href="/wallet" className="btn-gold mt-5">View my BB wallet →</Link>
+          </div>
+        ) : (
+        <>
         <div className="card prose prose-navy max-w-none prose-headings:text-navy prose-a:text-mint-dark prose-strong:text-navy">
-          <div dangerouslySetInnerHTML={{ __html: module.content }} />
+          {module.content.split('\n').map((paragraph, index) => <p key={index}>{paragraph}</p>)}
         </div>
 
         {/* Key takeaways */}
@@ -62,14 +48,16 @@ export default async function LearnPage({ params }) {
         )}
 
         {/* Quiz */}
-        {module.has_quiz && module.quizzes?.length > 0 && (
-          <Quiz quiz={module.quizzes[0]} moduleId={module.id} userId={user.id} />
+        {module.quiz?.length > 0 && (
+          <Quiz quiz={{ questions: module.quiz }} moduleId={module.id} />
+        )}
+        </>
         )}
 
         {/* Navigation */}
         <div className="flex flex-wrap justify-between gap-3 items-center pt-5 border-t border-mint/20">
           <span className="text-sm text-navy/60">
-            {isCompleted ? '✅ Completed' : `${progress?.percent_complete || 0}% complete`}
+            {module.is_free ? 'Free lesson · complete the check to continue' : `Unlock for ${module.cost_bb} BB`}
           </span>
           <Link href="/curriculum" className="text-mint-dark hover:underline text-sm font-medium">
             ← Back to Field Guide

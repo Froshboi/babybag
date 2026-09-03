@@ -1,13 +1,10 @@
 'use client';
 import { useState } from 'react';
-import { createClient } from '@/lib/supabase/client';
 
-export const Quiz = ({ quiz, moduleId, userId }) => {
+export const Quiz = ({ quiz, moduleId }) => {
   const [selected, setSelected] = useState({});
   const [submitted, setSubmitted] = useState(false);
   const [score, setScore] = useState(0);
-  const supabase = createClient();
-
   const questions = quiz.questions || [];
 
   const handleSubmit = async () => {
@@ -19,19 +16,11 @@ export const Quiz = ({ quiz, moduleId, userId }) => {
     setScore(pct);
     setSubmitted(true);
 
-    await supabase
-      .from('module_progress')
-      .upsert({
-        user_id: userId,
-        module_id: moduleId,
-        status: 'completed',
-        percent_complete: 100,
-        completed_at: new Date().toISOString(),
-      })
-      .select();
-
     if (pct >= 70) {
-      await supabase.rpc('claim_module_reward', { p_user_id: userId, p_module_id: moduleId });
+      const completed = JSON.parse(localStorage.getItem('babybags-completed-lessons') || '[]');
+      if (!completed.includes(moduleId)) {
+        localStorage.setItem('babybags-completed-lessons', JSON.stringify([...completed, moduleId]));
+      }
     }
   };
 
