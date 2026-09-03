@@ -3,11 +3,20 @@ import { Quiz } from '@/components/Quiz';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import curriculum from '@/data/curriculum.json';
+import { createServerSupabase } from '@/lib/supabase/server';
 
-export default function LearnPage({ params }) {
+export default async function LearnPage({ params }) {
   const module = curriculum.modules.find((item) => item.slug === params.slug);
 
   if (!module) return notFound();
+  const supabase = createServerSupabase();
+  const { data: { user } } = await supabase.auth.getUser();
+  if (!user) return null;
+  const [{ data: role }, { data: entitlement }] = await Promise.all([
+    supabase.from('user_roles').select('role').eq('user_id', user.id).eq('role', 'admin').maybeSingle(),
+    supabase.from('lesson_entitlements').select('id').eq('user_id', user.id).eq('lesson_slug', module.slug).maybeSingle(),
+  ]);
+  const canAccess = module.is_free || Boolean(role || entitlement);
 
   return (
     <ProtectedRoute>
@@ -22,11 +31,11 @@ export default function LearnPage({ params }) {
         </div>
 
         {/* Lesson content */}
-        {!module.is_free ? (
+        {!canAccess ? (
           <div className="card border-l-4 border-l-gold bg-gold/10">
             <p className="eyebrow">Premium lesson</p>
             <h2 className="text-2xl font-bold mt-2">Unlock the next level</h2>
-            <p className="text-navy/70 mt-2">You have access to lessons 1–3 and the paper simulator. Unlock this lesson for {module.cost_bb} BB when you are ready to go deeper.</p>
+            <p className="text-navy/70 mt-2">This lesson is not included in the free starter path. Unlock it for {module.cost_bb} BB, or ask an admin to award access.</p>
             <Link href="/wallet" className="btn-gold mt-5">View my BB wallet →</Link>
           </div>
         ) : (

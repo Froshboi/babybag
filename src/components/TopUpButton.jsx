@@ -5,6 +5,7 @@ import { useState } from 'react';
 export const TopUpButton = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [promoCode, setPromoCode] = useState('');
 
   const handleTopUp = async () => {
     setLoading(true);
@@ -12,7 +13,7 @@ export const TopUpButton = () => {
     try {
       const res = await fetch('/api/paystack/initialize', {
         method: 'POST',
-        body: JSON.stringify({ amount: 1000, packType: '1000' }),
+        body: JSON.stringify({ amount: 1000, packType: '1000', promoCode }),
         headers: { 'Content-Type': 'application/json' },
       });
       const result = await res.json();
@@ -28,6 +29,7 @@ export const TopUpButton = () => {
 
   return (
     <div>
+      <input className="field mb-2" value={promoCode} onChange={(event) => setPromoCode(event.target.value.toUpperCase())} placeholder="Promo code (optional)" aria-label="Promo code" />
       <button onClick={handleTopUp} disabled={loading} className="btn-primary">
         {loading ? 'Opening payment...' : 'Top Up ₦1,000'}
       </button>
