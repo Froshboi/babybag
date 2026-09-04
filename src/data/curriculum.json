@@ -32,6 +32,27 @@
           "options": ["Removes all risk", "Amplifies gains and losses", "Guarantees a winning trade", "Closes the market"],
           "correct_answer_index": 1,
           "explanation": "Leverage changes the size of exposure, so losses can grow faster too."
+        },
+        {
+          "id": "forex-3",
+          "question_text": "When is the forex market generally open?",
+          "options": ["24 hours a day, five days a week", "Only on weekends", "One hour per day", "Only during New York hours"],
+          "correct_answer_index": 0,
+          "explanation": "Forex follows the world's major financial sessions and is generally open 24/5."
+        },
+        {
+          "id": "forex-4",
+          "question_text": "In EUR/USD, which currency is the base currency?",
+          "options": ["EUR", "USD", "Both", "Neither"],
+          "correct_answer_index": 0,
+          "explanation": "The first currency in a pair is the base currency."
+        },
+        {
+          "id": "forex-5",
+          "question_text": "What does a rising EUR/USD price usually mean?",
+          "options": ["The euro is strengthening against the dollar", "The dollar is strengthening against the euro", "Both currencies are falling equally", "The market has closed"],
+          "correct_answer_index": 0,
+          "explanation": "A rising pair means one euro buys more dollars than before."
         }
       ]
     },
@@ -67,6 +88,27 @@
           "options": ["Lower highs and lower lows", "Flat closes only", "Higher highs and higher lows", "Random candles"],
           "correct_answer_index": 2,
           "explanation": "An uptrend advances through higher swing highs and higher swing lows."
+        },
+        {
+          "id": "price-3",
+          "question_text": "What does a candle body show?",
+          "options": ["The distance between open and close", "Only the day's highest price", "The broker's fee", "The market session schedule"],
+          "correct_answer_index": 0,
+          "explanation": "The body shows where price opened and closed during that period."
+        },
+        {
+          "id": "price-4",
+          "question_text": "How should support and resistance usually be treated?",
+          "options": ["As exact guaranteed lines", "As zones where price may react", "As signals to always enter", "As indicators of account balance"],
+          "correct_answer_index": 1,
+          "explanation": "Support and resistance are useful areas, not promises of a precise reversal."
+        },
+        {
+          "id": "price-5",
+          "question_text": "Why wait for confirmation?",
+          "options": ["It removes every losing trade", "It helps test whether the price idea is actually holding", "It guarantees a higher profit", "It makes leverage free"],
+          "correct_answer_index": 1,
+          "explanation": "Confirmation can keep you from acting on a guess before price supports the idea."
         }
       ]
     },
@@ -102,6 +144,27 @@
           "options": ["To guarantee a win", "To cap the planned loss if the idea is wrong", "To increase leverage", "To avoid journaling"],
           "correct_answer_index": 1,
           "explanation": "A stop exits when the setup is invalidated and keeps risk measurable."
+        },
+        {
+          "id": "risk-3",
+          "question_text": "What is a beginner-friendly risk limit for one demo trade?",
+          "options": ["About 1% of the account", "100% of the account", "Whatever feels exciting", "There is no limit"],
+          "correct_answer_index": 0,
+          "explanation": "A small fixed percentage leaves room to learn through a series of trades."
+        },
+        {
+          "id": "risk-4",
+          "question_text": "Where should a stop loss generally sit?",
+          "options": ["At a random price", "Beyond the point that invalidates the trade idea", "Only after a loss", "At the account balance"],
+          "correct_answer_index": 1,
+          "explanation": "The stop belongs where the original market idea is no longer valid."
+        },
+        {
+          "id": "risk-5",
+          "question_text": "What should position size be based on?",
+          "options": ["The stop distance and planned risk", "The biggest lot available", "A social media prediction", "The number of candles on screen"],
+          "correct_answer_index": 0,
+          "explanation": "Position size connects your account risk to the distance between entry and stop."
         }
       ]
     },

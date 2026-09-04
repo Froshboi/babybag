@@ -12,13 +12,13 @@ export default function Curriculum() {
 
   return (
     <ProtectedRoute>
-      <div className="space-y-10 bg-[#f1f8f1] -mx-0 px-6 sm:px-10 lg:px-16 py-12">
+      <div className="space-y-10 bg-[#f1f8f1] px-6 sm:px-10 lg:px-16 py-12">
         <div>
           <p className="eyebrow">Your learning path</p>
           <h1 className="section-title text-4xl md:text-5xl">📖 BABYBAGS FIELD GUIDE</h1>
         </div>
         <p className="text-navy/60 max-w-2xl -mt-6 leading-relaxed">
-          Six tiny modules. One clear path. Original educational material based on your Babybags Forex Guide. Learn at your pace, then check your understanding.
+          Six tiny modules. One clear path. Learn at your pace, then check your understanding with a fuller knowledge check in every starter lesson.
         </p>
 
         {/* 3‑column grid for the six main modules */}

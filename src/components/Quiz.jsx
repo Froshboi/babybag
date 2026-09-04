@@ -41,6 +41,10 @@ export const Quiz = ({ quiz, moduleId }) => {
     <div className="card mt-6">
       <p className="eyebrow">Tiny knowledge check</p>
       <h3 className="text-2xl font-bold mt-2 mb-5">📝 Check your understanding</h3>
+      <div className="flex items-center justify-between gap-3 mb-5 text-sm text-navy/60">
+        <span>{questions.length} questions</span>
+        <span>{Object.keys(selected).length} / {questions.length} answered</span>
+      </div>
       {questions.map((q, idx) => (
         <div key={q.id} className="mb-6 rounded-xl bg-cream/70 p-4">
           <p className="font-semibold">{idx + 1}. {q.question_text}</p>
@@ -60,7 +64,7 @@ export const Quiz = ({ quiz, moduleId }) => {
           </div>
         </div>
       ))}
-      <button onClick={handleSubmit} className="btn-primary mt-4">Submit Quiz</button>
+      <button onClick={handleSubmit} disabled={Object.keys(selected).length !== questions.length} className="btn-primary mt-4 disabled:opacity-40 disabled:cursor-not-allowed">Submit Quiz</button>
     </div>
   );
 };
