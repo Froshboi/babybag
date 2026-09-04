@@ -3,7 +3,7 @@ import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'rec
 
 export const SimulatorChart = ({ data }) => {
   return (
-    <div className="card h-80 border-t-4 border-t-mint">
+    <div className="card w-full max-w-full min-w-0 h-80 border-t-4 border-t-mint">
       <ResponsiveContainer width="100%" height="100%">
         <LineChart data={data}>
           <XAxis dataKey="time" stroke="#1A2A3A" />

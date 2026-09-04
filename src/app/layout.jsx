@@ -16,6 +16,13 @@ export const metadata = {
   icons: { icon: '/icon.svg', apple: '/icon.svg' },
 };
 
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  userScalable: true,
+};
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className="scroll-smooth">
@@ -23,7 +30,7 @@ export default function RootLayout({ children }) {
         <AuthProvider>
           <ServiceWorker />
           <Navbar />
-          <main className="flex-1 container mx-auto px-0 max-w-none">
+          <main className="flex-1 w-full min-w-0">
             {children}
           </main>
           <Footer />
